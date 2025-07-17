@@ -33,31 +33,31 @@ items:
         spec:
           serviceAccount: spring-cloud-kubernetes-consumer-service
 
-          securityContext:
-              runAsUser: 1002
-              runAsGroup: 1000
-              fsGroup: 1000  # Ensure this matches runAsGroup              
+          # securityContext:
+          #     runAsUser: 1002
+          #     runAsGroup: 1000
+          #     fsGroup: 1000  # Ensure this matches runAsGroup              
 
-          initContainers:
-          - name: take-data-dir-ownership
-            image: alpine:3
-            # Give 'cnb:1000' user (id cnb is 1002) 1000 is eric permissions a mounted volume      
-            command:
-            - chown
-            - -R
-            - 1002:1000
-            - /data
-            command:
-            - ls
-            - -latr
-            - /data
-            volumeMounts:
-            - name: data-dir
-              mountPath: /data
+          # initContainers:
+          # - name: take-data-dir-ownership
+          #   image: alpine:3
+          #   # Give 'cnb:1000' user (id cnb is 1002) 1000 is eric permissions a mounted volume      
+          #   command:
+          #   - chown
+          #   - -R
+          #   - 1002:1000
+          #   - /data
+          #   command:
+          #   - ls
+          #   - -latr
+          #   - /data
+          #   volumeMounts:
+          #   - name: data-dir
+          #     mountPath: /data
 
           containers:
           - name: spring-cloud-kubernetes-consumer-service
-            image: ericm24/spring-cloud-kubernetes-consumer-service:3.3.18-SNAPSHOT
+            image: ericm24/spring-cloud-kubernetes-consumer-service:3.3.18-snapshot
             imagePullPolicy: IfNotPresent
             env:
               - name: LOGGING_LEVEL_ORG_SPRINGFRAMEWORK_CLOUD
@@ -99,8 +99,7 @@ items:
               mountPath: "/workspace/configs"
             - name: pvc-consumer-service-secrets
               mountPath: "/workspace/secrets"
-
-            - name: config-volume-secret-both
+            - name: config-volume-secrets-both-evar
               mountPath: /dsg-platform/secrets
 
 #            - name: empty-log-volume
@@ -120,9 +119,11 @@ items:
           - name: data-dir
             hostPath:
               path: /mnt/nfsshare/k8svolumes/data
-          - name: config-volume-secret-both
+
+          - name: config-volume-secrets-both-evar
             configMap:
-              name: configmap-secrets-both
+              name: configmap-secrets-both-evar
 
 #          - name: empty-log-volume
 #            emptyDir: {}
+

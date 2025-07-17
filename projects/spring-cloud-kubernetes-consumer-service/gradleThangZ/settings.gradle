@@ -1,0 +1,17 @@
+//
+// spring-cloud-kubernetes-consumer-service
+//
+pluginManagement {
+	plugins {
+	}	
+	resolutionStrategy {
+	}
+
+	repositories {
+		maven { url 'https://repo.spring.io/milestone' }
+      	maven { url "https://plugins.gradle.org/m2/" }		
+		gradlePluginPortal()
+	}
+}
+
+rootProject.name = "spring-cloud-kubernetes-consumer-service"

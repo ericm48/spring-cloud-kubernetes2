@@ -1,7 +1,7 @@
 
 # Welcome to the Spring Cloud Kubernetes Project!
 
-This repo contains the following projects
+This repo contains the following projects:
 
 ## spring-cloud-kubernetes-parent
 
