@@ -33,10 +33,10 @@ items:
         spec:
           serviceAccount: spring-cloud-kubernetes-consumer-service
 
-          # securityContext:
-          #     runAsUser: 1002
-          #     runAsGroup: 1000
-          #     fsGroup: 1000  # Ensure this matches runAsGroup              
+          securityContext:
+              runAsUser: 1002
+              runAsGroup: 1000
+              fsGroup: 1000  # Ensure this matches runAsGroup              
 
           # initContainers:
           # - name: take-data-dir-ownership
@@ -99,11 +99,9 @@ items:
               mountPath: "/workspace/configs"
             - name: pvc-consumer-service-secrets
               mountPath: "/workspace/secrets"
-            - name: config-volume-secrets-both-evar
-              mountPath: /dsg-platform/secrets
+            - name: config-volume-secrets-vol 
+              mountPath: "/workspace/secrets2"
 
-#            - name: empty-log-volume
-#              mountPath: "/data/logs"
 
           volumes:
           - name: pvc-consumer-service-logs
@@ -120,10 +118,11 @@ items:
             hostPath:
               path: /mnt/nfsshare/k8svolumes/data
 
-          - name: config-volume-secrets-both-evar
-            configMap:
-              name: configmap-secrets-both-evar
-
-#          - name: empty-log-volume
-#            emptyDir: {}
+          - name: config-volume-secrets-vol
+            projected:
+              sources:
+              - configMap:
+                  name: configmap-secrets-vol-as-rawfiles
+              - configMap:
+                  name: configmap-secrets-vol-as-propfiles
 

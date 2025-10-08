@@ -1,0 +1,29 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [    
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "KubernetesConsumerServiceApplication",
+            "request": "launch",
+            "mainClass": "com.eric.microservices.consumerservice.ConsumerServiceApplication",
+            "projectName": "spring-cloud-kubernetes-consumer-service",
+
+            "env": {
+                "SPRING_CONFIG_IMPORT": "optional:file:/dsg-platform/secrets/userid2-settings.properties,optional:file:/dsg-platform/secrets/password2-settings.properties",
+                "SCK_FILE_USERID": "/dsg-platform/secrets/TEST_ERIC_TEST_USERID1",
+                "SCK_FILE_PASSWORD": "/dsg-platform/secrets/TEST_ERIC_TEST_PASSWORD1",
+                "SCK_EVAR_USERID": "MY_SECRET_EVAR_USERID22",
+                "SCK_EVAR_PASSWORD": "MY_SECRET_EVAR_PASSWORD22"
+            }
+        }
+    ]
+}
