@@ -2,8 +2,8 @@
 // build.gradle  // Take 2
 //
 
-group = "com.dcsg.common"
-version = "3.3.24-snapshot"
+group = "com.eric.common"
+version = "3.3.24-SNAPSHOT"
 
 ext {
     set("springCloudVersion", "2024.0.0")
