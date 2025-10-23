@@ -57,7 +57,7 @@ items:
 
           containers:
           - name: spring-cloud-kubernetes-consumer-service
-            image: ericm24/spring-cloud-kubernetes-consumer-service:3.3.18-snapshot
+            image: ericm24/spring-cloud-kubernetes-consumer-service:3.3.18-SNAPSHOT
             imagePullPolicy: IfNotPresent
             env:
               - name: LOGGING_LEVEL_ORG_SPRINGFRAMEWORK_CLOUD
