@@ -22,7 +22,7 @@ items:
     metadata:
       name: spring-cloud-kubernetes-consumer-service-deployment
     spec:
-      replicas: 1
+      replicas: 3
       selector:
         matchLabels:
           app: spring-cloud-kubernetes-consumer-service
