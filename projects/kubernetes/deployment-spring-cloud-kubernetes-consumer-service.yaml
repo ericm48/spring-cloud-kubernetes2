@@ -39,21 +39,21 @@ items:
               fsGroup: 1000  # Ensure this matches runAsGroup              
 
           # initContainers:
-          # - name: take-data-dir-ownership
-          #   image: alpine:3
+          - name: take-data-dir-ownership
+            image: alpine:3
           #   # Give 'cnb:1000' user (id cnb is 1002) 1000 is eric permissions a mounted volume      
-          #   command:
-          #   - chown
-          #   - -R
-          #   - 1002:1000
-          #   - /data
-          #   command:
-          #   - ls
-          #   - -latr
-          #   - /data
-          #   volumeMounts:
-          #   - name: data-dir
-          #     mountPath: /data
+            command:
+            - chown
+            - -R
+            - 1002:1000
+            - /data
+            command:
+            - ls
+            - -latr
+            - /data
+            volumeMounts:
+            - name: data-dir
+              mountPath: /data
 
           containers:
           - name: spring-cloud-kubernetes-consumer-service
