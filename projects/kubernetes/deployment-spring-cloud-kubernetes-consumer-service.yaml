@@ -38,7 +38,9 @@ items:
               runAsGroup: 1000
               fsGroup: 1000  # Ensure this matches runAsGroup              
 
-          # initContainers:
+          # Init-Container:
+          
+          initContainers:
           - name: take-data-dir-ownership
             image: alpine:3
           #   # Give 'cnb:1000' user (id cnb is 1002) 1000 is eric permissions a mounted volume      
