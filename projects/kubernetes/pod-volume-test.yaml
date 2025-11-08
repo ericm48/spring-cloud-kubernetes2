@@ -27,4 +27,4 @@ spec:
     emptyDir: {}    
   - name: config-volume-secret-both
     configMap:
-      name: configmap-secrets-both
+      name: configmap-secrets-both-evar
