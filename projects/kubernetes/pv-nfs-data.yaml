@@ -13,5 +13,5 @@ spec:
   mountOptions:
     - nfsvers=4.1
   nfs:
-    server: 192.168.1.103
+    server: 10.38.207.125 #192.168.1.103
     path: "/mnt/nfsshare/k8svolumes"
