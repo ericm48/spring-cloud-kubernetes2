@@ -27,78 +27,44 @@ spec:
             name: spring-cloud-kubernetes-consumer-service #httpbin
             port:
               number: 8080 #8000
+        path: /get-config/game #/get
+        pathType: Prefix
+      - backend:
+          service:
+            name: spring-cloud-kubernetes-consumer-service #httpbin
+            port:
+              number: 8080 #8000
         path: /get-config/ui #/get
-        pathType: Prefix        
+        pathType: Prefix
+      - backend:
+          service:
+            name: spring-cloud-kubernetes-consumer-service #httpbin
+            port:
+              number: 8080 #8000
+        path: /get-secret/from-evar #/get
+        pathType: Prefix
+      - backend:
+          service:
+            name: spring-cloud-kubernetes-consumer-service #httpbin
+            port:
+              number: 8080 #8000
+        path: /get-secret/from-file1 #/get
+        pathType: Prefix
+      - backend:
+          service:
+            name: spring-cloud-kubernetes-consumer-service #httpbin
+            port:
+              number: 8080 #8000
+        path: /get-secret/from-file2 #/get
+        pathType: Prefix
+      - backend:
+          service:
+            name: spring-cloud-kubernetes-consumer-service #httpbin
+            port:
+              number: 8080 #8000
+        path: /actuator #/get
+        pathType: Prefix
   tls:
   - hosts:
     - 10.38.207.151.consumer.service.sslip.io 
     secretName: consumer.service-tls
-
-
-# kubernetes gateway api example:
-# ---
-# apiVersion: gateway.networking.k8s.io/v1
-# kind: HTTPRoute
-# metadata:
-#   name: httpbin
-#   namespace: httpbin
-# spec:
-#   parentRefs:
-#   - name: gateway
-#     namespace: ingress-gtw
-#     sectionName: https
-#   hostnames: 
-#   - 'httpbin.ky-rafaels.com'
-#   rules:
-#   - matches:
-#     - path:
-#         type: PathPrefix
-#         value: /
-#     backendRefs:
-#     - name: httpbin
-#       port: 8000
-# ---
-# kind: Role
-# apiVersion: rbac.authorization.k8s.io/v1
-# metadata:
-#   namespace: httpbin
-#   name: ingress-gateway-secrets-reader
-# rules:
-# - apiGroups: [""]
-#   resources: ["secrets"]
-#   verbs:
-#   - create
-#   - get
-#   - watch
-#   - list
-#   - update
-#   - delete
-# ---
-# kind: RoleBinding
-# apiVersion: rbac.authorization.k8s.io/v1
-# metadata:
-#   name: ingress-gateway-secrets-reader
-#   namespace: httpbin 
-# subjects:
-# - kind: ServiceAccount
-#   name: gateway-istio
-#   namespace: httpbin
-# roleRef:
-#   kind: Role
-#   name: ingress-gateway-secrets-reader
-#   apiGroup: rbac.authorization.k8s.io
-# # ---
-# # apiVersion: gateway.networking.k8s.io/v1beta1
-# # kind: ReferenceGrant
-# # metadata:
-# #   name: httpbin
-# #   namespace: httpbin
-# # spec:
-# #   from:
-# #     - group: gateway.networking.k8s.io
-# #       kind: HTTPRoute
-# #       namespace: istio-ingress
-# #   to:
-# #     - group: ""
-# #       kind: Service
-# #       name: httpbin
