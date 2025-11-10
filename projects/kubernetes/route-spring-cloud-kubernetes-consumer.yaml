@@ -22,6 +22,13 @@ spec:
               number: 8080 #8000
         path: /get-config/timeout #/get
         pathType: Prefix
+      - backend:
+          service:
+            name: spring-cloud-kubernetes-consumer-service #httpbin
+            port:
+              number: 8080 #8000
+        path: /get-config/ui #/get
+        pathType: Prefix        
   tls:
   - hosts:
     - 10.38.207.151.consumer.service.sslip.io 
