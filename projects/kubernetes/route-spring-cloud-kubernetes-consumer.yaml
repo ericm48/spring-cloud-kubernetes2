@@ -2,7 +2,7 @@
 apiVersion: networking.k8s.io/v1 
 kind: Ingress 
 metadata:
-  name: spring-cloud-kubernetes-consumer-service
+  name: route-spring-cloud-kubernetes-consumer-service
   annotations:
     cert-manager.io/cluster-issuer: selfsigned-issuer
     kubernetes.io/ingress.class: kommander-traefik
