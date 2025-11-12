@@ -69,9 +69,9 @@ items:
               - name: SPRING_CONFIG_IMPORT
                 value: "optional:file:/workspace/configs/timeout-settings.properties,optional:file:/workspace/configs/game-settings.properties,optional:file:/workspace/configs/ui-settings.properties,optional:file:/workspace/secrets/userid2-settings.properties,optional:file:/workspace/secrets/password2-settings.properties"
               - name: SCK_FILE_USERID
-                value: '/dsg-platform/secrets/TEST_ERIC_TEST_USERID1'
+                value: '/mem-platform/secrets/TEST_ERIC_TEST_USERID1'
               - name: SCK_FILE_PASSWORD
-                value: '/dsg-platform/secrets/TEST_ERIC_TEST_PASSWORD1'
+                value: '/mem-platform/secrets/TEST_ERIC_TEST_PASSWORD1'
               - name: SCK_EVAR_USERID
                 value: 'MY_SECRET_EVAR_USERID22'
               - name: SCK_EVAR_PASSWORD

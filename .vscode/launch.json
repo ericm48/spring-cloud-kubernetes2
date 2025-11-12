@@ -18,9 +18,9 @@
             "projectName": "spring-cloud-kubernetes-consumer-service",
 
             "env": {
-                "SPRING_CONFIG_IMPORT": "optional:file:/dsg-platform/secrets/userid2-settings.properties,optional:file:/dsg-platform/secrets/password2-settings.properties",
-                "SCK_FILE_USERID": "/dsg-platform/secrets/TEST_ERIC_TEST_USERID1",
-                "SCK_FILE_PASSWORD": "/dsg-platform/secrets/TEST_ERIC_TEST_PASSWORD1",
+                "SPRING_CONFIG_IMPORT": "optional:file:/mem-platform/secrets/userid2-settings.properties,optional:file:/mem-platform/secrets/password2-settings.properties",
+                "SCK_FILE_USERID": "/mem-platform/secrets/TEST_ERIC_TEST_USERID1",
+                "SCK_FILE_PASSWORD": "/mem-platform/secrets/TEST_ERIC_TEST_PASSWORD1",
                 "SCK_EVAR_USERID": "MY_SECRET_EVAR_USERID22",
                 "SCK_EVAR_PASSWORD": "MY_SECRET_EVAR_PASSWORD22"
             }

@@ -20,7 +20,7 @@ spec:
     - name: empty-log-volume
       mountPath: /data
     - name: config-volume-secret-both
-      mountPath: /dsg-platform/secrets
+      mountPath: /mem-platform/secrets
   
   volumes:
   - name: empty-log-volume
